@@ -1,0 +1,25 @@
+[user]
+	name = Nil Késede
+	email = nilkesede@gmail.com
+[core]
+	ignorecase = false
+	excludesfile = ~/.gitignore
+[alias]
+	ec = config --global -e
+	st = status -sb
+	br = branch
+	cm = commit
+	co = checkout
+	lo = log --oneline
+	lod = log --all --graph --decorate --oneline --abbrev-commit
+	ps = push
+	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+	cob = checkout -b
+	ac = !git add -A && git commit
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	wip = commit -am "WIP"
+	undo = reset HEAD~1 --mixed
+	amend = commit -a --amend
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
