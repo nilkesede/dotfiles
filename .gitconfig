@@ -1,11 +1,18 @@
 [user]
 	name = Nil Késede
 	email = nilkesede@gmail.com
+	signingkey = EEB536C25D91398C
 [core]
 	ignorecase = false
 	excludesfile = ~/.gitignore
+	editor = vim
+[commit]
+	gpgsign = true
+[url "git://"]
+    insteadOf = https://
 [alias]
 	ec = config --global -e
+	rs = reset
 	st = status -sb
 	br = branch
 	cm = commit
@@ -20,6 +27,7 @@
 	wip = commit -am "WIP"
 	undo = reset HEAD~1 --mixed
 	amend = commit -a --amend
+	default = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
 	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
-	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+	bclean = "!f() { DEFAULT=$(git default); git branch --merged ${1-$DEFAULT} | grep -v " ${1-$DEFAULT}$" | xargs git branch -d; }; f"
+	bdone = "!f() { DEFAULT=$(git default); git checkout ${1-$DEFAULT} && git up && git bclean ${1-$DEFAULT}; }; f"
