@@ -8,8 +8,8 @@
 	editor = vim
 [commit]
 	gpgsign = true
-[url "git://"]
-    insteadOf = https://
+[url "git@github.com:"]
+    insteadOf = https://github.com/
 [alias]
 	ec = config --global -e
 	rs = reset
@@ -18,8 +18,11 @@
 	cm = commit
 	co = checkout
 	lo = log --oneline
+	dw = diff -w
+	cf = clean -qfdx
 	lod = log --all --graph --decorate --oneline --abbrev-commit
 	ps = push
+	psu = "!f() { git push -u origin $1; }; f"
 	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
 	cob = checkout -b
 	ac = !git add -A && git commit
