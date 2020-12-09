@@ -1,7 +1,7 @@
 [user]
 	name = Nil Késede
 	email = nilkesede@gmail.com
-	signingkey = EEB536C25D91398C
+	signingkey =
 [core]
 	ignorecase = false
 	excludesfile = ~/.gitignore
