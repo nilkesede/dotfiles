@@ -1,11 +1,11 @@
 [user]
 	name = Nil Késede
 	email = nilkesede@gmail.com
-	signingkey =
 [core]
 	ignorecase = false
 	excludesfile = ~/.gitignore
 	editor = vim
+	filemode = false
 [commit]
 	gpgsign = true
 [url "git@github.com:"]
