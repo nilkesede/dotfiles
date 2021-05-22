@@ -70,6 +70,22 @@ sudo firewall-cmd --add-service=mysql --permanent
 sudo firewall-cmd --reload
 ```
 
+### mongo
+```bash
+cat <<EOF | sudo tee /etc/yum.repos.d/mongodb.repo
+[mongodb-4.4]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/4.4/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
+EOF
+
+sudo dnf -y install mongodb-org
+
+mongo -version
+```
+
 ### docker
 ```bash
 sudo dnf install -y grubby
