@@ -9,7 +9,8 @@ sudo mount -a
 
 wget -O ~/Pictures/bg.jpg https://www.solidbackgrounds.com/images/1920x1080/1920x1080-black-solid-color-background.jpg
 
-hostnamectl set-hostname zurg
+sudo hostnamectl set-hostname zurg
+sudo timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
 ### update packages
