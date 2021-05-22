@@ -118,7 +118,7 @@ cp ./_files/.gitconfig ~/.gitconfig
 cp ./_files/.gitignore ~/.gitignore
 cp ./_files/.vimrc ~/.vimrc
 cp ./_files/.wakatime.cfg ~/.wakatime.cfg
-cp ./_files/.ssh ~/
+cp -r ./_files/.ssh ~/
 
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
