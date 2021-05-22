@@ -109,7 +109,7 @@ sudo dnf install -y gh
 ```
 
 ```bash
-sudo dnf install -y dnf-plugins-core fish gnome-tweak-tool awscli filezilla nodejs snapd vim
+sudo dnf install -y dnf-plugins-core fish gnome-tweak-tool awscli filezilla nodejs snapd vim php
 
 sudo snap install android-studio --classic
 sudo snap install postman
