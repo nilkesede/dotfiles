@@ -4,6 +4,6 @@ Name=Postman
 Exec=/var/lib/snapd/snap/bin/postman
 Terminal=false
 Type=Application
-Icon=/var/lib/snapd/snap/postman/133/usr/share/Postman/resources/app/assets/icon.png
+Icon=/var/lib/snapd/snap/postman/140/usr/share/Postman/resources/app/assets/icon.png
 StartupWMClass=Postman
 Categories=Development;

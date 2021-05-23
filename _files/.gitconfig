@@ -6,13 +6,14 @@
 	excludesfile = ~/.gitignore
 	editor = vim
 	filemode = false
-[commit]
-	gpgsign = true
 [url "git@github.com:"]
     insteadOf = https://github.com/
+[init]
+	defaultBranch = main
 [alias]
 	ec = config --global -e
 	rs = reset
+	reload = !git add -A && git reset --hard
 	st = status -sb
 	br = branch
 	cm = commit

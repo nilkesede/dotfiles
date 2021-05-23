@@ -72,10 +72,12 @@ sudo firewall-cmd --reload
 
 ### mongo
 ```bash
+sudo dnf install https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/33/Everything/x86_64/os/Packages/c/compat-openssl10-1.0.2o-11.fc33.x86_64.rpm
+
 cat <<EOF | sudo tee /etc/yum.repos.d/mongodb.repo
-[mongodb-4.4]
+[Mongodb]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/4.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
@@ -118,10 +120,14 @@ cp ./_files/.gitconfig ~/.gitconfig
 cp ./_files/.gitignore ~/.gitignore
 cp ./_files/.vimrc ~/.vimrc
 cp ./_files/.wakatime.cfg ~/.wakatime.cfg
-cp -r ./_files/.ssh ~/
+cp ./_files/postman.desktop ~/.local/share/applications/postman_postman.desktop
 
+ssh-keygen -t ed25519 -C "email@email.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+# add to github
+cat ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
 
 mkdir -p ~/.config/fish/functions
 cp ./_files/config.fish ~/.config/fish/config.fish
