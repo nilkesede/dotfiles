@@ -51,9 +51,7 @@ sudo dnf install -y code
 
 ### dbeaver
 ```bash
-wget -O dbeaver.rpm https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
-sudo dnf install -y ./dbeaver.rpm
-rm ./dbeaver.rpm
+sudo dnf install -y https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
 ```
 
 ### mysql
@@ -142,4 +140,6 @@ curl -sSL https://raw.githubusercontent.com/brigand/fast-nvm-fish/master/nvm.fis
 
 sudo dnf install -y util-linux-user
 chsh -s /usr/bin/fish
+
+https://github.com/source-foundry/Hack/releases
 ```
