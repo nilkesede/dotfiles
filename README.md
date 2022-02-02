@@ -142,4 +142,5 @@ sudo dnf install -y util-linux-user
 chsh -s /usr/bin/fish
 
 https://github.com/source-foundry/Hack/releases
+https://github.com/ryazh3nk4/keychron_function_keys_linux
 ```
