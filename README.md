@@ -88,12 +88,10 @@ mongo -version
 
 ### docker
 ```bash
-sudo dnf install -y grubby
+sudo dnf install moby-engine docker-compose
+
 sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
 sudo sed -i -e 's/SELINUX=/SELINUX=disabled #/g' /etc/selinux/config
-
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install -y docker-ce
 
 sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
 sudo firewall-cmd --permanent --zone=docker --change-interface=docker0
