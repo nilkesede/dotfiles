@@ -1,16 +1,12 @@
 # dotfiles
 
 ```bash
-# mount ntfs disk on fstab
-sudo blkid
-sudo vi /etc/fstab
-# UUID=2AAA5C23775CD1AA /mnt/files ntfs-3g rw,uid=1000,gid=1000,dmask=0002,fmask=0003 0 0
-sudo mount -a
-
-wget -O ~/Pictures/bg.jpg https://www.solidbackgrounds.com/images/1920x1080/1920x1080-black-solid-color-background.jpg
-
+wget -O ~/Pictures/bk.jpg https://www.solidbackgrounds.com/images/1920x1080/1920x1080-black-solid-color-background.jpg
+wget -O ~/Pictures/bg.jpg https://i.imgur.com/TZiJlEy.jpg
 sudo hostnamectl set-hostname zurg
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 ```
 
 ### update packages
@@ -54,38 +50,6 @@ sudo dnf install -y code
 sudo dnf install -y https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
 ```
 
-### mysql
-```bash
-sudo dnf install -y https://dev.mysql.com/get/mysql80-community-release-fc34-1.noarch.rpm
-sudo dnf check-update
-sudo dnf install -y mysql-community-server
-sudo systemctl start mysqld.service
-sudo systemctl enable mysqld.service
-sudo grep 'A temporary password' /var/log/mysqld.log |tail -1
-mysql -uroot -p -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'";
-sudo mysql_secure_installation
-sudo firewall-cmd --add-service=mysql --permanent
-sudo firewall-cmd --reload
-```
-
-### mongo
-```bash
-sudo dnf install https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/33/Everything/x86_64/os/Packages/c/compat-openssl10-1.0.2o-11.fc33.x86_64.rpm
-
-cat <<EOF | sudo tee /etc/yum.repos.d/mongodb.repo
-[Mongodb]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
-EOF
-
-sudo dnf -y install mongodb-org
-
-mongo -version
-```
-
 ### docker
 ```bash
 sudo dnf install moby-engine docker-compose
@@ -100,6 +64,12 @@ sudo usermod -aG docker $(whoami)
 sudo systemctl enable --now docker
 ```
 
+### mysql
+```bash
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql
+sudo dnf install community-mysql
+```
+
 ### gh
 ```bash
 sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
@@ -107,11 +77,8 @@ sudo dnf install -y gh
 ```
 
 ```bash
-sudo dnf install https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/33/Everything/x86_64/os/Packages/c/compat-openssl10-1.0.2o-11.fc33.x86_64.rpm
+sudo dnf install -y dnf-plugins-core fish gnome-tweak-tool nodejs snapd vim
 
-sudo dnf install -y dnf-plugins-core fish gnome-tweak-tool awscli filezilla nodejs snapd vim php
-
-sudo snap install android-studio --classic
 sudo snap install postman
 
 cp ./_files/.gitconfig ~/.gitconfig
