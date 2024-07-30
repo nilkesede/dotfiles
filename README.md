@@ -2,7 +2,7 @@
 
 ```bash
 wget -O ~/Pictures/bk.jpg https://www.solidbackgrounds.com/images/1920x1080/1920x1080-black-solid-color-background.jpg
-wget -O ~/Pictures/bg.jpg https://i.imgur.com/TZiJlEy.jpg
+wget -O ~/Pictures/bg.jpg https://i.imgur.com/TZiJlEy.jpeg
 sudo hostnamectl set-hostname zurg
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
