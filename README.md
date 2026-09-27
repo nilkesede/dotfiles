@@ -97,7 +97,7 @@ ssh -T git@github.com
 mkdir -p ~/.config/fish/functions
 cp ./_files/config.fish ~/.config/fish/config.fish
 cp ./_files/fish_greeting.fish ~/.config/fish/functions/fish_greeting.fish
-curl -L https://get.oh-my.fish | fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 omf install bobthefish
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
